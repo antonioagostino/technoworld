@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+
+	<servlet>
+		<servlet-name>Home</servlet-name>
+	  	<servlet-class>controller.websurfing.Home</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>Home</servlet-name>
+	  	<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>WhoWeAre</servlet-name>
+	  	<servlet-class>controller.websurfing.WhoWeAre</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>WhoWeAre</servlet-name>
+	  	<url-pattern>/whoWeAre</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Login</servlet-name>
+	  	<servlet-class>controller.access.Login</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>Login</servlet-name>
+	  	<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ForgottenPassword</servlet-name>
+	  	<servlet-class>controller.access.ForgottenPassword</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>ForgottenPassword</servlet-name>
+	  	<url-pattern>/forgottenPassword</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PasswordRecovery</servlet-name>
+	  	<servlet-class>controller.access.PasswordRecovery</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>PasswordRecovery</servlet-name>
+	  	<url-pattern>/passwordRecovery</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Cart</servlet-name>
+	  	<servlet-class>controller.purchase.Cart</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>Cart</servlet-name>
+	  	<url-pattern>/cart</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CheckCart</servlet-name>
+	  	<servlet-class>controller.purchase.CheckCart</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>CheckCart</servlet-name>
+	  	<url-pattern>/checkCart</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RemoveCartProduct</servlet-name>
+	  	<servlet-class>controller.purchase.RemoveCartProduct</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>RemoveCartProduct</servlet-name>
+	  	<url-pattern>/removeCartProduct</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UpdateQuantity</servlet-name>
+	  	<servlet-class>controller.purchase.UpdateQuantity</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>UpdateQuantity</servlet-name>
+	  	<url-pattern>/updateQuantity</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UpdateTotalPrice</servlet-name>
+	  	<servlet-class>controller.purchase.UpdateTotalPrice</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>UpdateTotalPrice</servlet-name>
+	  	<url-pattern>/updateTotalPrice</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Registration</servlet-name>
+	  	<servlet-class>controller.access.Registration</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>Registration</servlet-name>
+	  	<url-pattern>/registration</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Faq</servlet-name>
+	  	<servlet-class>controller.websurfing.Faq</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>Faq</servlet-name>
+	  	<url-pattern>/faq</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Map</servlet-name>
+	  	<servlet-class>controller.websurfing.Map</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>Map</servlet-name>
+	  	<url-pattern>/map</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Search</servlet-name>
+		<servlet-class>controller.websurfing.Search</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Search</servlet-name>
+		<url-pattern>/search</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Product</servlet-name>
+		<servlet-class>controller.purchase.ProductServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Product</servlet-name>
+		<url-pattern>/product</url-pattern>
+	</servlet-mapping>
+	
+
+	<servlet>
+		<servlet-name>SearchJSON</servlet-name>
+		<servlet-class>controller.websurfing.SearchJSON</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SearchJSON</servlet-name>
+		<url-pattern>/searchjson</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PostReview</servlet-name>
+	  	<servlet-class>controller.websurfing.PostReview</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>PostReview</servlet-name>
+	  	<url-pattern>/postReview</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>FindReviews</servlet-name>
+		<servlet-class>controller.websurfing.FindReviews</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FindReviews</servlet-name>
+		<url-pattern>/findreviews</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>InsertProduct</servlet-name>
+		<servlet-class>controller.administration.InsertProduct</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>InsertProduct</servlet-name>
+		<url-pattern>/insertproduct</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ModifyProduct</servlet-name>
+		<servlet-class>controller.administration.ModifyProduct</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ModifyProduct</servlet-name>
+		<url-pattern>/modifyProduct</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteProduct</servlet-name>
+		<servlet-class>controller.administration.DeleteProduct</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DeleteProduct</servlet-name>
+		<url-pattern>/deleteProduct</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CompletedPayment</servlet-name>
+		<servlet-class>controller.purchase.CompletedPayment</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CompletedPayment</servlet-name>
+		<url-pattern>/completedpayment</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Orders</servlet-name>
+		<servlet-class>controller.purchase.Orders</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Orders</servlet-name>
+		<url-pattern>/orders</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CreateTicket</servlet-name>
+		<servlet-class>controller.websurfing.CreateTicket</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CreateTicket</servlet-name>
+		<url-pattern>/createticket</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>MyTickets</servlet-name>
+		<servlet-class>controller.websurfing.MyTickets</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MyTickets</servlet-name>
+		<url-pattern>/mytickets</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Ticket</servlet-name>
+		<servlet-class>controller.websurfing.Ticket</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Ticket</servlet-name>
+		<url-pattern>/ticket</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>CharsetFilter</filter-name>
+		<filter-class>controller.websurfing.CharsetFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>CharsetFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>

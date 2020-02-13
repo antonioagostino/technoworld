@@ -1,0 +1,8 @@
+@charset "ISO-8859-1";
+
+
+#googleMap {
+	position: relative;
+	width: 100%;
+	height: 88vh;
+}

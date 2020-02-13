@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.card-link {
+	color : #feac01;
+	font-weight: bold;
+}
+
+
+
+.jumbotron {
+	text-align: center;
+}
+
+.product {
+	margin-left : 5px;
+	margin-bottom: 5px;
+}
+
+.images {
+	margin : 1%;
+}
+
+#writeReview {
+	margin-left: 25px;
+}
+
+
+hr {
+	background-color: #cccccc;
+}
+
+#recipt {
+	margin-left: 26%;
+	margin-top: 5%;
+	
+}
+
+
+
+#price {
+	text-align: right;
+}
+
+img {
+	width: 100px; 
+	height: 100px;
+}

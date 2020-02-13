@@ -1,0 +1,134 @@
+body {
+	width: 99%; 
+}
+
+#menuBar div {
+	position: relative;
+}
+
+#logo {
+	content: url("../img/logo.png");
+	position: relative;
+	cursor: pointer;
+	width: 90px;
+}
+
+#whoWeAre>a:hover, #faq>a:hover, #map>a:hover, #orders>a:hover {
+	text-decoration: none;
+}
+
+#whoWeAre>a, #faq > a, #map > a , #orders > a {
+	color: inherit;
+}
+
+.searchbar {
+	position: relative;
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #e4e4e4;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.search_input {
+    color: black;
+    border: 0;
+    outline: 0;
+    background: none;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+
+.search_input:not(:focus) {
+	width: 0;
+}
+
+.search_input:focus {
+	width: 20vh;
+}
+
+.searchbar:hover > .search_input {
+    padding: 0 10px;
+    width: 20vh;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon:not(:hover){
+    background: white;
+    color: #0080ff;
+    text-decoration: none;
+}
+
+.search_icon {
+	position: relative;
+	height: 40px;
+	width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.search_icon:hover { 
+	background-color: #0080ff;
+    text-decoration: none;
+}
+
+.search_icon:hover > i {
+	color: white;
+}
+
+#welcomeAdm {
+	color: white;
+	font-weight: lighter;
+}
+
+#modal {
+	position: absolute;
+}
+
+.modal-title {
+	font-size: 2vw;
+	font-weight: lighter;
+	white-space: nowrap;
+}
+
+.modal-body {
+	font-weight: lighter;
+	font-size: 1vw;
+}
+
+.modal-dialog {
+	float: right;
+	max-width: 100%;
+	right: 12vh;
+}
+
+#modalContent {
+	color: white;
+}
+
+#buttonAddProduct {
+	background-color: #feac01;
+	color: white;
+	white-space: nowrap;	
+}
+
+#register, #buttonAddProduct {
+	float: right;
+}
+
+#logout {
+	position: relative;
+	left: 10%;
+}
+
+#cart {
+	background-color: #feac01;
+	float: right;
+	color: white;
+}

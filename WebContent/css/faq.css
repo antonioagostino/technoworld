@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+div {
+	position: relative;
+}
+
+#title {
+	height: 30vh;
+}
+
+.imageTitle {
+	position: relative;
+	height: 90%;
+	float: right;
+	content: url("../img/doubt.png");
+}
+
+#buttonCenterFaq{
+	position: absolute;
+	right: 50%;	
+	top: 100%;
+}
+
+.keysFaq{
+	height: 60px;
+	width:60px;
+}
+
+
+#title{
+	position: relative;
+}
+
+td {
+	cursor: pointer;
+}
+
+#istanceQuestions{
+}
+
+#container{
+	position: relative;
+}
+
+#usbFaq{
+	position: relative;
+	animation: mymove 100s infinite;
+	animation-timing-function: linear;
+	text-align: center;
+}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 90%;}
+}

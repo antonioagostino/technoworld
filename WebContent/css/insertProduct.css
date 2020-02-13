@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+div.card{
+	width:1280px;
+}
+
+div {
+	position: relative;
+}
+
+div.photoCameraInsertProduct{
+	position: relative;
+	content: url("../img/camera2d.png");
+}
+
+#rowSubmitInsertProduct{
+	text-align: center;
+}
+
+#specificsText,#commentText{
+	padding-bottom:30px;
+}
+
+#insertImage{
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+#titleInsertProduct{
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+#priceInsertProduct{
+	padding-bottom: 30px;	
+}
+
+#insertManufacturer,#insertTitle{
+	padding-bottom: 30px;
+}
+
+#mainRow{
+	padding-left: 22%;
+	padding-right: 22%;
+	padding-bottom: 3%;
+}
+
+#inputInsertProduct{
+	position: relative;
+	text-align: center;
+}

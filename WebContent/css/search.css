@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+img{
+	position : relative;
+}
+
+.carousel-item {
+	background-color: white;
+}
+
+#carousel2{
+	text-align: center;	
+}
+
+#img3 {
+	float : right;	
+}
+
+
+
+#img1{
+	float: left;
+}
+
+
+
+#carouselBoxSearch div {
+	height: 25vh; 
+	z-index: 0;
+}
+
+.carousel-img  {
+	height: 100%;
+	z-index: 1;
+}
+
+#pagination {
+	margin: 20 px;	
+}
+
+
+#paginationDiv {
+	margin-top:10vh;
+}
+
+.page-item {
+	cursor : pointer;
+}
+
+
+.list-group-item {
+	cursor : pointer;
+}
+
+#apply {
+	margin-top: 7%;
+	margin-left:  40%;
+}
+
+
+
+
+

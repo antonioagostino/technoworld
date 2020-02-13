@@ -1,0 +1,64 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #e9e9e9;	
+}
+
+#container {
+	width: 50%;
+	margin: auto;
+	padding: 20px 20px;
+}
+
+#divLogo {
+	position: relative;
+	text-align: center;
+}
+
+#logoLogin {
+	position: relative;
+	height: 20vh;
+}
+
+.alert {
+	position: relative;
+	width: 59%;
+	margin: auto;
+	text-align: center;
+}
+
+i, strong, p {
+	position: relative;
+	left: 5%;
+}
+
+
+.form-group {
+	position: relative;
+	width: 50%;
+	margin: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.forgottenPassword, .adminLogin {
+	position: relative;
+	font-size: 12px;
+	padding-top: 6px;
+	float: right;
+}
+
+.registration {
+	position: relative;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+hr {
+	width: 30%;
+}
+
+
+
+
+
