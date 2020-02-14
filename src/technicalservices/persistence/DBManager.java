@@ -208,8 +208,8 @@ public class DBManager {
 
 	public int insertTicket(User user){ return getTicketDao().insertTicket(user); }
 
-	public boolean insertTicketMessage(int ticketId, String message){
-		return getTicketDao().insertTicketMessage(ticketId, message);
+	public boolean insertTicketMessage(int ticketId, String message, boolean sender){
+		return getTicketDao().insertTicketMessage(ticketId, message, sender);
 	}
 
 	public ArrayList<Ticket> getTicketsForUser(User user){
@@ -228,5 +228,13 @@ public class DBManager {
 
 	public String getEmailByUserId(int id) {
 		return getUserDao().getEmailByUserId(id);
+	}
+
+	public boolean setTicketAdmin(int ticketId, Administrator admin){
+		return getTicketDao().setTicketAdmin(ticketId, admin);
+	}
+
+	public boolean closeTicket(int ticketId){
+		return getTicketDao().closeTicket(ticketId);
 	}
 }

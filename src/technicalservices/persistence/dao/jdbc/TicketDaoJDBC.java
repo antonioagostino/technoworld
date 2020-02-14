@@ -51,14 +51,15 @@ public class TicketDaoJDBC implements TicketDao {
 
 
     @Override
-    public boolean insertTicketMessage(int ticketId, String message) {
+    public boolean insertTicketMessage(int ticketId, String message, boolean sender) {
 
         try {
             connection = dataSource.getConnection();
-            String query = "insert into \"ticketMessages\"(\"ticketId\", \"date\", \"messagebody\", \"sender\") values(?, now(), ?, true)";
+            String query = "insert into \"ticketMessages\"(\"ticketId\", \"date\", \"messagebody\", \"sender\") values(?, now(), ?, ?)";
             PreparedStatement stat = connection.prepareStatement(query);
             stat.setInt(1, ticketId);
             stat.setString(2, message);
+            stat.setBoolean(3, sender);
             stat.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -145,7 +146,7 @@ public class TicketDaoJDBC implements TicketDao {
         ArrayList<TicketMessage> ticketMessages = new ArrayList<>();
         try {
             connection = dataSource.getConnection();
-            String query = "select * from \"ticketMessages\" where \"ticketId\" = ? order by \"date\" desc";
+            String query = "select * from \"ticketMessages\" where \"ticketId\" = ? order by \"date\" asc";
             PreparedStatement stat = connection.prepareStatement(query);
             stat.setInt(1, ticketId);
             ResultSet resultSet = stat.executeQuery();
@@ -168,5 +169,46 @@ public class TicketDaoJDBC implements TicketDao {
         return ticketMessages;
     }
 
+    @Override
+    public boolean setTicketAdmin(int ticketId, Administrator admin) {
+        try {
+            connection = dataSource.getConnection();
+            String query = "update \"tickets\" set \"adminId\" = ? where id = ?";
+            PreparedStatement stat = connection.prepareStatement(query);
+            stat.setString(1, admin.getId());
+            stat.setInt(2, ticketId);
+            stat.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
+    @Override
+    public boolean closeTicket(int ticketId) {
+        try {
+            connection = dataSource.getConnection();
+            String query = "update \"tickets\" set \"status\" = 1 where id = ?";
+            PreparedStatement stat = connection.prepareStatement(query);
+            stat.setInt(1, ticketId);
+            stat.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

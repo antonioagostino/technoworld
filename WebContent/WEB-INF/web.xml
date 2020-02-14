@@ -262,6 +262,26 @@
 		<url-pattern>/ticket</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>ResponseTicket</servlet-name>
+		<servlet-class>controller.websurfing.ResponseTicket</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ResponseTicket</servlet-name>
+		<url-pattern>/responseticket</url-pattern>
+	</servlet-mapping>
+
+    <servlet>
+        <servlet-name>CloseTicket</servlet-name>
+        <servlet-class>controller.websurfing.CloseTicket</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CloseTicket</servlet-name>
+        <url-pattern>/closeticket</url-pattern>
+    </servlet-mapping>
+
 	<filter>
 		<filter-name>CharsetFilter</filter-name>
 		<filter-class>controller.websurfing.CharsetFilter</filter-class>

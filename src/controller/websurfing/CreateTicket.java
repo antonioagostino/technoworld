@@ -28,7 +28,7 @@ public class CreateTicket extends HttpServlet {
                 req.setAttribute("status", 3);
             else
                 if (ticketId > 0)
-                    if(DBManager.getInstance().insertTicketMessage(ticketId, message))
+                    if(DBManager.getInstance().insertTicketMessage(ticketId, message, true))
                         req.setAttribute("status", 1);
                     else
                         req.setAttribute("status", 2);
