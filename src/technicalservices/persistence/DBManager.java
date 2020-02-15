@@ -237,4 +237,12 @@ public class DBManager {
 	public boolean closeTicket(int ticketId){
 		return getTicketDao().closeTicket(ticketId);
 	}
+
+	public ArrayList<Ticket> getTicketsWithoutAdmin(){
+		return getTicketDao().getTicketsWithoutAdmin();
+	}
+
+	public ArrayList<Ticket> getTicketsForAdmin(Administrator administrator){
+		return getTicketDao().getTicketsForAdmin(administrator);
+	}
 }

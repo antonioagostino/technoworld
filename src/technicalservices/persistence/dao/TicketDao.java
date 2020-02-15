@@ -15,4 +15,6 @@ public interface TicketDao {
     ArrayList<TicketMessage> getTicketMessages(int ticketId);
     boolean setTicketAdmin(int ticketId, Administrator admin);
     boolean closeTicket(int ticketId);
+    ArrayList<Ticket> getTicketsForAdmin(Administrator administrator);
+    ArrayList<Ticket> getTicketsWithoutAdmin();
 }

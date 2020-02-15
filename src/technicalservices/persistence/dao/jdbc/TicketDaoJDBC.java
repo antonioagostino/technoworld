@@ -211,4 +211,75 @@ public class TicketDaoJDBC implements TicketDao {
             }
         }
     }
+
+    @Override
+    public ArrayList<Ticket> getTicketsForAdmin(Administrator administrator) {
+        ArrayList<Ticket> tickets = new ArrayList<>();
+        try {
+            connection = dataSource.getConnection();
+            String query = "select * from tickets,\"user\" where tickets.\"userId\" = \"user\".id and " +
+                    "\"tickets\".\"adminId\" = ? and status = 0";
+            PreparedStatement stat = connection.prepareStatement(query);
+            stat.setString(1, administrator.getId());
+            ResultSet resultSet = stat.executeQuery();
+            while (resultSet.next()){
+                User user = new User();
+                user.setId(resultSet.getInt("userId" +
+                        ""));
+                user.setName(resultSet.getString("name"));
+                user.setSurname(resultSet.getString("surname"));
+                user.setUsername(resultSet.getString("username"));
+                TicketProxy ticket = new TicketProxy(resultSet.getInt("id"),
+                        resultSet.getDate("date"), user, resultSet.getInt("status"),
+                        administrator);
+                tickets.add(ticket);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return tickets;
+    }
+
+    @Override
+    public ArrayList<Ticket> getTicketsWithoutAdmin() {
+        ArrayList<Ticket> tickets = new ArrayList<>();
+        try {
+            connection = dataSource.getConnection();
+            String query = "select * from tickets,\"user\" where tickets.\"userId\" = \"user\".id and " +
+                    "\"tickets\".\"adminId\" is null and status = 0";
+            PreparedStatement stat = connection.prepareStatement(query);
+            ResultSet resultSet = stat.executeQuery();
+            while (resultSet.next()){
+                User user = new User();
+                user.setId(resultSet.getInt("userId" +
+                        ""));
+                user.setName(resultSet.getString("name"));
+                user.setSurname(resultSet.getString("surname"));
+                user.setUsername(resultSet.getString("username"));
+                TicketProxy ticket = new TicketProxy(resultSet.getInt("id"),
+                        resultSet.getDate("date"), user, resultSet.getInt("status"),
+                        new Administrator(null, null));
+                tickets.add(ticket);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return tickets;
+    }
 }
