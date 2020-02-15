@@ -98,22 +98,29 @@
 	</c:choose>
 	
 	<div class="col">
-		<c:if test="${(user == null) && (administrator == null)}">
-			<a href="login">
-				<button id="login" class="btn btn-primary">
-					Accedi
-				</button>
-			</a>
-		</c:if>
 		<c:if test="${(user != null) || (administrator != null)}">
-			<a href="login?logout=true">
+			<a href="login?logout=true" onclick="signOut();"> 
 				
 				<button id="logout" class="btn btn-primary">
 					Logout
-				</button>
-				
+				</button>	
 			</a>
+			
 		</c:if>
-	</div>
+				
+		<script>
+		  function signOut() {
+		    var auth2 = gapi.auth2.getAuthInstance();
+		    auth2.signOut().then(function () {
+		      console.log('User signed out.');
+		    });
+		  }
+		  
+		  function onLoad() {
+		      gapi.load('auth2', function() {
+		        gapi.auth2.init();
+		      });
+		   }
+		</script>
 	
 </div>
