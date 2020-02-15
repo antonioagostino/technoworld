@@ -281,6 +281,26 @@
         <servlet-name>CloseTicket</servlet-name>
         <url-pattern>/closeticket</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+		<servlet-name>SendRecipt</servlet-name>
+	  	<servlet-class>controller.purchases.SendRecipt</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>SendRecipt</servlet-name>
+	  	<url-pattern>/sendRecipt</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GoogleLogin</servlet-name>
+	  	<servlet-class>controller.access.GoogleLogin</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+	  	<servlet-name>GoogleLogin</servlet-name>
+	  	<url-pattern>/googleLogin</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>NewTickets</servlet-name>

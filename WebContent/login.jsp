@@ -83,6 +83,7 @@
 		  	<input type="submit" class="btn btn-primary" value="Accedi" />
 		  </div>
 		</form>
+		<div class="g-signin2" data-onsuccess="onSignIn" style="margin-top: 2%;"></div>
 	</div>
 	
 	<%@ include file="footer.jsp" %>
