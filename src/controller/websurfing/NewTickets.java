@@ -13,24 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MyTickets extends HttpServlet {
+public class NewTickets extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User actualUser = (User) req.getSession().getAttribute("user");
         Administrator admin = (Administrator) req.getSession().getAttribute("administrator");
-
-        if(actualUser != null){
-            ArrayList<Ticket> tickets = DBManager.getInstance().getTicketsForUser(actualUser);
+        if(admin != null){
+            ArrayList<Ticket> tickets = DBManager.getInstance().getTicketsWithoutAdmin();
             req.setAttribute("tickets", tickets);
-        } else {
-            if(admin != null){
-                ArrayList<Ticket> tickets = DBManager.getInstance().getTicketsForAdmin(admin);
-                req.setAttribute("tickets", tickets);
-            }
         }
 
-        RequestDispatcher rd = req.getRequestDispatcher("myTickets.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("newtickets.jsp");
         rd.forward(req, resp);
     }
 }

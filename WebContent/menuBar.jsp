@@ -26,8 +26,8 @@
 	</a>
 	
 	<div id="whoWeAre" class="col">
-		<a href="whoWeAre">
-			Chi Siamo
+		<a href="mytickets">
+			Assistenza
 		</a>
 	</div>
 	<div id="faq" class="col">

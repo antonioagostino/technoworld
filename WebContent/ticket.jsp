@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -73,7 +74,7 @@
                                 </c:if>
                             </div>
                             <div class="col-sm-4">
-                                <p class="text-right">scritto il ${message.date}</p>
+                                <p class="text-right">scritto il <fmt:formatDate pattern = "dd-MM-yyyy" value = "${message.date}" /></p>
                             </div>
                         </div>
                         <div class="row">
@@ -86,7 +87,7 @@
             </div>
         </c:forEach>
     </c:if>
-    <c:if test="${differentadmin == null && wrongticket == null && permissions == null && closed == null}">
+    <c:if test="${differentadmin == null && wrongticket == null && permissions == null && closed == null && ticket.status == 0}">
         <div class="row">
             <form class="form-horizontal col" method="post" action="responseticket?id=${ticket.id}<c:if test="${ticket.admin.id != null}">&aid=${ticket.admin.id}</c:if>">
                 <div class="row" id="ticket-text">
@@ -119,5 +120,6 @@
         </c:if>
     </c:if>
 </div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

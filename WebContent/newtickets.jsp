@@ -14,28 +14,11 @@
 <%@ include file="menuBar.jsp" %>
 
 <br>
-    <div class="container-fluid">
-        <div class="row">
-            <h2 class="col display-4 text-center" id="pageTitle">
-                <c:if test="${administrator == null}">
-                    I tuoi Ticket
-                </c:if>
-                <c:if test="${administrator != null}">
-                    Ticket ai quali hai risposto
-                </c:if>
-            </h2>
-        </div>
-        <c:if test="${administrator != null}">
-            <div class="row">
-                <p class="col text-right"><a href="newtickets">Ticket ancora senza risposta</a></p>
-            </div>
-        </c:if>
-        <c:if test="${user != null}">
-            <div class="row">
-                <p class="col text-right"><a href="createticket">Crea un nuovo ticket</a></p>
-            </div>
-        </c:if>
-        <c:forEach var="ticket" items="${tickets}">
+<div class="container-fluid">
+    <div class="row">
+        <h2 class="col display-4 text-center" id="pageTitle"> Ticket senza risposta</h2>
+    </div>
+    <c:forEach var="ticket" items="${tickets}">
         <div class="row" id="ticket-body">
             <div class="col card">
                 <div class="card-body row">
@@ -55,8 +38,8 @@
                 </div>
             </div>
         </div>
-        </c:forEach>
-    </div>
+    </c:forEach>
+</div>
 <%@ include file="footer.jsp" %>
 </body>
 </html>

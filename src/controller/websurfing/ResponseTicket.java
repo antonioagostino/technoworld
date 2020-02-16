@@ -39,11 +39,14 @@ public class ResponseTicket extends HttpServlet {
                         sender = false;
 
                     if (DBManager.getInstance().insertTicketMessage(ticketId, message, sender)) {
-                        if(req.getParameter("aid") == null || req.getParameter("aid").equals("")) {
+                        if((req.getParameter("aid") == null || req.getParameter("aid").equals("")) &&
+                            !sender) {
                             if (DBManager.getInstance().setTicketAdmin(ticketId, administrator))
                                 req.setAttribute("status", 1);
                             else
                                 req.setAttribute("status", 2);
+                        } else {
+                            req.setAttribute("status", 1);
                         }
                     } else {
                         req.setAttribute("status", 2);

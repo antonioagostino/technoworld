@@ -302,6 +302,16 @@
 	  	<url-pattern>/googleLogin</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>NewTickets</servlet-name>
+		<servlet-class>controller.websurfing.NewTickets</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>NewTickets</servlet-name>
+		<url-pattern>/newtickets</url-pattern>
+	</servlet-mapping>
+
 	<filter>
 		<filter-name>CharsetFilter</filter-name>
 		<filter-class>controller.websurfing.CharsetFilter</filter-class>
