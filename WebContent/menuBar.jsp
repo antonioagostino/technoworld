@@ -98,6 +98,13 @@
 	</c:choose>
 	
 	<div class="col">
+		<c:if test="${(user == null) && (administrator == null)}">
+			<a href="login">
+				<button id="login" class="btn btn-primary">
+					Accedi
+				</button>
+			</a>
+		</c:if>
 		<c:if test="${(user != null) || (administrator != null)}">
 			<a href="login?logout=true" onclick="signOut();"> 
 				
@@ -122,5 +129,15 @@
 		      });
 		   }
 		</script>
+				
+				
+				
+				
+				
+  
+  
+
+  
+	</div>
 	
 </div>
