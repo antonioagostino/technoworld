@@ -28,7 +28,7 @@ function onSignIn(googleUser) {
     
     $.post("googleLogin",{ 	email : email, name : name, surname : surname }, function(result){
     				    	    if(result == 1){
-    				    	    	window.location.href = "http://localhost:8080/techoworld/home";
+    				    	    	window.location.href = "http://localhost:8080/technoworld/home";
     				    	    }
   				    	  });
 }
