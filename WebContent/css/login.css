@@ -58,7 +58,15 @@ hr {
 	width: 30%;
 }
 
+.g-signin2{
+  width: 100%;
+  margin-top: 2%;
+}
 
+.g-signin2 > div{
+  margin: 0 auto;
+  border-radius: 25px;
+}
 
 
 

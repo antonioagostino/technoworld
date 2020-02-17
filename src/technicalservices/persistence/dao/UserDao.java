@@ -16,4 +16,5 @@ public interface UserDao {
 	public void updatePassword(String username, String newPassword);
 	public int findId(String username);
 	public String getEmailByUserId(int id);
+	public void registerGoogleUser(User user);
 }

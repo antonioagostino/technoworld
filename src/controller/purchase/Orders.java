@@ -21,6 +21,7 @@ public class Orders  extends HttpServlet {
 		User user = (User) req.getSession().getAttribute("user");
 		
 		ArrayList<Purchase> purchases = DBManager.getInstance().getPurchasesForUser(user.getId());
+		
 		if(purchases != null) {
 			req.setAttribute("purchases", purchases);
 		}

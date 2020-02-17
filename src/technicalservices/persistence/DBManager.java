@@ -245,4 +245,6 @@ public class DBManager {
 	public ArrayList<Ticket> getTicketsForAdmin(Administrator administrator){
 		return getTicketDao().getTicketsForAdmin(administrator);
 	}
+	
+	public void registerGoogleUser(User user) { getUserDao().registerGoogleUser(user);}
 }

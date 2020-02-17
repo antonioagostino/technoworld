@@ -10,5 +10,5 @@
 <link rel="stylesheet" href="css/menuBar.css">
 <script src="js/menuBar.js"></script>
 <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-<meta name = "google-signin-client_id" content = "249644610113-f9m14pb86ll2hqa230g8m1885t76lv20.apps.googleusercontent.com">
+<meta name = "google-signin-client_id" content = "277034231605-82l8lfsevpl19119k1b0bn1rk56r64lb.apps.googleusercontent.com">
 <meta name="google-signin-scope" content="profile email">

@@ -27,26 +27,41 @@ public class GoogleLogin extends HttpServlet{
 		RequestDispatcher rd = null;
 		User user = db.getUserByEmail(email);
 		
-		if(user != null) {
-			req.getSession().setAttribute("user", user);
-			req.getSession().setAttribute("firstLogin", true);
+		if(user == null) {
 			
-			ArrayList<Product> cart = (ArrayList<Product>) req.getSession().getAttribute("cartArray");
+			user = new User();
+			user.setName(name);
+			user.setEmail(email);
+			user.setSurname(surname);
 			
-			if(cart != null) {
-				for(Product p : cart) {
-					if(!DBManager.getInstance().isInCart(user.getId(), p.getId()))
-						DBManager.getInstance().insertIntoCart(user.getId(), p.getId(), p.getOrderQuantity());
-				}
+			int index = email.indexOf('@');
+			
+			String username1 = email.substring(0,index);
+			String username = username1;
+			int actual = 1;
+			while(db.getUserByUsername(username) != null) {
+				username = username1 + actual;
+				actual ++;
 			}
+			user.setUsername(username);
+			db.registerGoogleUser(user);
 			
-			resp.getOutputStream().print(1);
 		}
-		else {
-			//regitrare
-		}
-	
-	
 		
+		
+		req.getSession().setAttribute("user", user);
+		req.getSession().setAttribute("firstLogin", true);
+		
+		ArrayList<Product> cart = (ArrayList<Product>) req.getSession().getAttribute("cartArray");
+		
+		if(cart != null) {
+			for(Product p : cart) {
+				if(!DBManager.getInstance().isInCart(user.getId(), p.getId()))
+					DBManager.getInstance().insertIntoCart(user.getId(), p.getId(), p.getOrderQuantity());
+			}
+		}
+	
+	resp.getOutputStream().print(1);
 	}
+
 }

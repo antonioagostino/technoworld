@@ -13,8 +13,10 @@
 	<script type="text/javascript" src="js/login.js"></script>
 	<link rel="stylesheet" href="css/login.css">
 	
+	
+	
 </head>
-<body onload="signOut();">
+<body>
 
 	<div id="container">
 		<div id="divLogo">
@@ -82,7 +84,8 @@
 		  <div class="col text-center">
 		  	<input type="submit" class="btn btn-primary" value="Accedi" />
 		  </div>
-		  <div class="g-signin2" data-onsuccess="onSignIn" style="text-align: center;"></div>
+		  <div class="g-signin2" data-width="230" data-height="45" data-longtitle="true" data-onsuccess="onSignIn"></div>
+		  
 		</form>
 		
 	</div>

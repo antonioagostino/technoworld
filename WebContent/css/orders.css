@@ -32,7 +32,6 @@ hr {
 #recipt {
 	margin-left: 26%;
 	margin-top: 5%;
-	
 }
 
 
@@ -44,4 +43,9 @@ hr {
 img {
 	width: 100px; 
 	height: 100px;
+}
+
+#noOrders {
+	text-align: center;
+	color: #feac01;
 }

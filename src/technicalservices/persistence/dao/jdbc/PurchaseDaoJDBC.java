@@ -69,7 +69,8 @@ public class PurchaseDaoJDBC implements PurchaseDao {
             	}
                 previous = result.getInt(1);
             }
-            purchases.add(purchase);
+            if(purchase!=null)
+            	purchases.add(purchase);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

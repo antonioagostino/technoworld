@@ -23,13 +23,13 @@
 
 			<div class="container" >
 				<c:if test="${emptyOrders == true}">
-					<h1>Non ci sono ordini</h1>
+					<h1 id="noOrders">Non ci sono ordini</h1>
 				</c:if>
 		
 		
 			<div id="accordion">
 			
-			
+			<c:if test="${emptyOrders == false}">
 			<c:forEach var="purchase" items="${purchases}">
 				<div class="card">
       				<div class="card-header">
@@ -78,6 +78,7 @@
 	          		
 	          		</div>				
 	          	</c:forEach> 	
+	          	</c:if>
 			</div> <!-- accordion -->
 			
 			

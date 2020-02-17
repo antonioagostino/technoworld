@@ -49,6 +49,7 @@ public class UserDaoJDBC implements UserDao {
 		}
 	}
 	
+	
 	@Override
 	public void updatePassword(String username, String newPassword) {
 		try {
@@ -274,5 +275,31 @@ public class UserDaoJDBC implements UserDao {
 				}
 			}
 		return email;
+	}
+
+	@Override
+	public void registerGoogleUser(User user) {
+		try {
+			connection = dataSource.getConnection();
+			
+			String registration = "insert into \"user\"(surname, name, email, username) values (?,?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(registration);
+			statement.setString(1, user.getSurname());
+			statement.setString(2, user.getName());
+			statement.setString(4, user.getEmail());
+			statement.setString(5, user.getUsername());
+			
+			statement.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 }
