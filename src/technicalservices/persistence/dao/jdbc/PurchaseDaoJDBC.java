@@ -109,14 +109,27 @@ public class PurchaseDaoJDBC implements PurchaseDao {
     }
 
     @Override
-    public boolean insertPurchase(int userId, int paymentId, String shipmentMode) {
+    public boolean insertPurchase(int userId, int paymentId, String shipmentMode, int storeId, int status) {
         try {
             connection = dataSource.getConnection();
-            String query = "insert into purchase(\"date\", \"user\", \"payment\", \"shipment\") values(now(), ?, ?, ?) ";
+            String query = "";
+
+            if(storeId == -1){
+                query = "insert into purchase(\"date\", \"user\", \"payment\", \"shipment\", \"status\") values(now(), ?, ?, ?, ?) ";
+            } else {
+                query = "insert into purchase(\"date\", \"user\", \"payment\", \"shipment\", \"storeId\", \"status\") values(now(), ?, ?, ?, ?, ?) ";
+            }
+
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, userId);
             statement.setInt(2, paymentId);
             statement.setString(3, shipmentMode);
+            if(storeId == -1){
+                statement.setInt(4, status);
+            } else {
+                statement.setInt(4, storeId);
+                statement.setInt(5, status);
+            }
             statement.executeUpdate();
             return true;
         } catch (SQLException e) {

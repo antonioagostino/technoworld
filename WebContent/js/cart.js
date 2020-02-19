@@ -3,22 +3,31 @@ var cartProductsQuantity = [];
 var userId;
 var totalPrice;
 var address = "";
+var storeId = -1;
+
+function changeStoreId(id) {
+	storeId = id;
+}
 
 function valueCheck() {
 
 	if(($("#cap").val() === "" || $("#city").val() === "" || $("#province").val() === "" ||
 		$("#recipient").val() === "" || $("#street").val() === "") && $("#radio2").prop("checked") == true) {
 		$("#shipmentAlert").show();
-
+	} else if($("#radio1").prop("checked") == true && storeId == -1){
+		$("#storeAlert").show();
 	} else {
 
-		if($("#radio1").prop("checked") == true)
+		if($("#radio1").prop("checked") == true) {
 			address = "RITIRO IN NEGOZIO";
-		else
+		} else {
 			address = $("#recipient").val() + ",\n" + $("#street").val() + ",\n" + $("#cap").val()
 				+ ",\n" + $("#city").val() + ",\n" + $("#province").val();
+			storeId = -1;
+		}
 
 		$("#shipmentAlert").hide();
+		$("#storeAlert").hide();
 		$("#paypalTitle").show();
 		$('#shipmentcontainer').hide();
 		$('#shipmentTitle').hide();
@@ -56,7 +65,8 @@ function valueCheck() {
 							products: cartProducts,
 							productsQuantity: cartProductsQuantity,
 							address: address,
-							amount: totalPrice
+							amount: totalPrice,
+							store: storeId
 						})
 					}).done(function(msg) {
 						$('#paymentWaitingBox').hide();
@@ -151,10 +161,12 @@ function updateFunctions(idProduct) {
 $(document).ready(function(){
 	 
     $("#radio2").click(function() {
-        $("#shipment").css("display","");
+        $("#shipment").show();
+        $("#localStoreDropdown").hide();
     });
     $("#radio1").click(function() {
-        $("#shipment").css("display","none");
+        $("#shipment").hide();
+        $("#localStoreDropdown").show();
     });
 
 });

@@ -7,6 +7,7 @@ public class PayPalOrder {
     private int[] productsQuantity;
     private String address;
     private float amount;
+    private int store;
 
     public PayPalOrder(String orderID, int userID, int[] products, int[] productsQuantity, String address, float amount) {
         this.orderID = orderID;
@@ -63,5 +64,13 @@ public class PayPalOrder {
 
     public void setProductsQuantity(int[] productsQuantity) {
         this.productsQuantity = productsQuantity;
+    }
+
+    public int getStore() {
+        return store;
+    }
+
+    public void setStore(int store) {
+        this.store = store;
     }
 }
