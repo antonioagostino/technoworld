@@ -30,30 +30,17 @@
 			  <!-- The slideshow -->
 			  <div class="carousel-inner">
 			    <div id="carouselPhone" class="carousel-item">
-			      <img class="carousel-img" src="img/phone.jpg" alt="cellulari">
-			      <!-- <button id="buttonPhone" class="btn btn-outline-primary">Smartphones Piu' Venduti</button> -->
-			      <div class="carousel-caption d-none d-md-block">
-				    <h5 class="carouselText">Smartphone</h5>
-				    <p class="carouselText">Il massimo della tecnologia</p>
-				  </div>
+			      <img class="carousel-img" src="img/carousel/home/1.jpg" alt="cellulari">
+			      
 			      
 			    </div>
 			    <div id="carouselLaptop" class="carousel-item active">
-			      <img id="carouselImg2" class="carousel-img" src="img/computer.jpg" alt="laptop">
-			      <!-- <button id="buttonLaptop" class="btn btn-outline-light">Laptop Piu' Venduti</button> -->
-			      <div class="carousel-caption d-none d-md-block">
-				    <h5 class="carouselText">Laptop</h5>
-				    <p class="carouselText">Il massimo della tecnologia</p>
-				  </div>
+			      <img id="carouselImg2" class="carousel-img" src="img/carousel/home/2.jpg" alt="laptop">
+			      
 			    </div>
 			    
 			    <div id="carouselHardware" class="carousel-item">
-			      <img class="carousel-img" src="img/cpu.jpg" alt="cpu">
-		      	  <!-- <button id="buttonHardware" class="btn btn-outline-light">Hardware Piu' Venduti</button> -->
-		      	  <div class="carousel-caption d-none d-md-block">
-				    <h5 class="carouselText">Hardware</h5>
-				    <p class="carouselText">Il massimo della tecnologia</p>
-				  </div>
+			      <img class="carousel-img" src="img/carousel/home/3.jpg" alt="cpu">
 			    </div>
 			  </div>
 			
@@ -74,13 +61,6 @@
 		<h1>TechnoWorld</h1>
 		<h3>Entra in un mondo di pura tecnologia</h3>
 	</div>
-	
-	
-	<!-- <div class="lastArrives"">
-		<h4>Ultimi Arrivi</h4> 
-		<h6>Scopri i prodotti piu' recenti</h6>
-	</div> -->
-	
 	
 	
 	<div class="row">

@@ -8,10 +8,15 @@
 }
 
 #carouselPhone {
-	background-color: #6dbbec;
+	background-color: white;
 }
 
-#carouselLaptop, #carouselHardware {
+#carouselLaptop {
+	background-color: ;
+	text-align: center;
+}
+
+#carouselHardware {
 	background-color: black;
 }
 
@@ -20,9 +25,16 @@
 	z-index: 1;
 }
 
-.carouselText {
-	position: relative;
-	top: 80%;
+
+#TextSm {
+	color: black;
+	margin-top: 12%;
+	margin-left: 80%;
+}
+
+#TextAc {
+	margin-top: 20%;
+	margin-left: 85%;
 }
 
 #carouselImg2 {
@@ -43,8 +55,6 @@
 	font-weight: bold;	
 	z-index: 2;
 }
-
-/* // FINE CAROUSEL */
 
 
 .jumbotron {
