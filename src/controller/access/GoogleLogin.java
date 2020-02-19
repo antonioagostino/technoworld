@@ -24,7 +24,6 @@ public class GoogleLogin extends HttpServlet{
 		
 		
 		DBManager db = DBManager.getInstance();
-		RequestDispatcher rd = null;
 		User user = db.getUserByEmail(email);
 		
 		if(user == null) {

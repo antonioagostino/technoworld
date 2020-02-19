@@ -15,4 +15,7 @@ public interface PurchaseDao {
     boolean insertPurchaseProductAssociation(int quantity, int productId, int purchaseId);
 	Purchase getPurchaseById(int id);
 	ArrayList<Store> getAllStore();
+	Store getStoreByAdmin(String admin);
+	ArrayList<Purchase> getPurchaseForStore(int storeId);
+	void updateStatus(int orderStatus, int orderId);
 }

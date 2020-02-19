@@ -250,4 +250,10 @@ public class DBManager {
 	public void registerGoogleUser(User user) { getUserDao().registerGoogleUser(user);}
 	
 	public ArrayList<Store> getAllStore() { return getPurchaseDao().getAllStore(); }
+
+	public Store getStoreByAdmin(String admin) { return getPurchaseDao().getStoreByAdmin(admin); }
+
+	public ArrayList<Purchase> getPurchaseForStore(int storeId) { return getPurchaseDao().getPurchaseForStore(storeId); }
+	
+	public void updateStatus(int status, int orderId) { getPurchaseDao().updateStatus(status, orderId); }
 }

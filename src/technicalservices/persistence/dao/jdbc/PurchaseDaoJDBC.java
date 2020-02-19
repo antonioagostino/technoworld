@@ -217,7 +217,11 @@ public class PurchaseDaoJDBC implements PurchaseDao {
 		Purchase purchase = null;
 		try {
             connection = dataSource.getConnection();
-            String query = "select * from purchase,\"user\", \"purchaseProducts\",payment,product where product.id = \"purchaseProducts\".product and purchase.id = \"purchaseProducts\".purchase and payment.id=purchase.payment and purchase.id=? and purchase.user=\"user\".id";
+            String query = "select * \n" + 
+            		"from \"map\", \"purchase\",\"user\", \"purchaseProducts\", payment, product  \n" + 
+            		"where 	\"purchase\".\"storeId\" = \"map\".\"idStore\" and product.id = \"purchaseProducts\".product and \n" + 
+            		"		purchase.id = \"purchaseProducts\".purchase and payment.id=purchase.payment and purchase.user=\"user\".\"id\" \n" + 
+            		"		and \"purchase\".\"storeId\" = ?";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             ResultSet result = statement.executeQuery();
@@ -283,4 +287,114 @@ public class PurchaseDaoJDBC implements PurchaseDao {
 		
 		return allStore;
 	}
+
+	@Override
+	public Store getStoreByAdmin(String admin) {
+		Store store = null;
+		try {
+            connection = dataSource.getConnection();
+            String query = "select * from \"map\", \"storeAdmin\" where \"storeAdmin\".\"storeId\" = \"map\".\"idStore\" and \"storeAdmin\".\"id\" = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, admin);
+            ResultSet result = statement.executeQuery();
+            while(result.next()) {
+            	Store s = new Store(result.getInt("idStore"), result.getString("name"));
+            	s.setCoordinates(result.getString("position"));
+            }            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+		
+		return store;
+	}
+
+	@Override
+	public ArrayList<Purchase> getPurchaseForStore(int storeId) {
+		ArrayList<Purchase> purchases = new ArrayList<Purchase>();
+		try {
+            connection = dataSource.getConnection();
+            String query = "select * from \"map\", \"purchase\" where \"purchase\".\"storeId\" = \"map\".\"idStore\" and \"purchase\".\"storeId\" = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, storeId);
+            ResultSet result = statement.executeQuery();
+            int previous = -1;
+            Purchase purchase = null;
+            while (result.next()) {
+            	if(result.getInt(1) == previous) {
+            		Product p1 = new ProductProxy();
+                    p1.setModel(result.getString("model"));
+                    p1.setManufacturer(result.getString("manufacturer"));
+                    p1.setPrice(result.getFloat("price"));
+                    p1.setId(result.getInt("product"));
+                    p1.setImagePath(result.getString("image"));
+                    purchase.getProducts().add(new ProductQuantity(p1,result.getInt("quantity")));
+            	}
+            	else {
+            		if(purchase != null)
+            			purchases.add(purchase);
+            		purchase = new Purchase();
+                    purchase.setId(result.getInt(1));
+                    purchase.setDate(result.getDate("date"));
+                    purchase.setShipment(result.getString("shipment"));
+                    Payment payment = new Payment();
+                    payment.setTransaction(result.getString("transactionCode"));
+                    payment.setAmount(result.getFloat("amount"));
+                    purchase.setPayment(payment);
+                    
+                    ArrayList<ProductQuantity> products = new ArrayList<>();
+                    Product p1 = new ProductProxy();
+                    p1.setModel(result.getString("model"));
+                    p1.setManufacturer(result.getString("manufacturer"));
+                    p1.setPrice(result.getFloat("price"));
+                    p1.setId(result.getInt("product"));
+                    p1.setImagePath(result.getString("image"));
+                    products.add(new ProductQuantity(p1, result.getInt("quantity")));
+                    purchase.setProducts(products);
+            	}
+                previous = result.getInt(1);
+            }
+            if(purchase!=null)
+            	purchases.add(purchase);
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+		
+		return purchases;
+	}
+	
+	@Override
+	public void updateStatus(int orderStatus, int orderId) {
+		try {
+            connection = dataSource.getConnection();
+           	String query = "UPDATE purchase SET status = ? WHERE id = ?";
+           	PreparedStatement stat = connection.prepareStatement(query);
+           	stat.setInt(1, orderStatus);
+           	stat.setInt(2, orderId);
+           	stat.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+	}
+	
+	
+	
 }
