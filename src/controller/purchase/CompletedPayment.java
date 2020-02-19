@@ -38,8 +38,12 @@ public class CompletedPayment extends HttpServlet {
             if(!paymentId.equals("-1")){
                 if(DBManager.getInstance().insertPayment(payPalOrder.getAmount(), paymentId)){
                     Payment payment = DBManager.getInstance().getPayment(paymentId);
+                    int status = 1;
+                    if(payPalOrder.getStore() == -1)
+                        status = 3;
+
                     if(DBManager.getInstance().insertPurchase(payPalOrder.getUserID(), payment.getId(),
-                            payPalOrder.getAddress())){
+                            payPalOrder.getAddress(), payPalOrder.getStore(), status)){
                         Purchase purchase = DBManager.getInstance().getPurchase(payment);
                         int[] quantities = payPalOrder.getProductsQuantity();
                         int[] products = payPalOrder.getProducts();

@@ -186,8 +186,8 @@ public class DBManager {
 		return getPurchaseDao().insertPayment(amount, transactionCode);
 	}
 
-	public boolean insertPurchase(int userId, int paymentId, String shipmentMode){
-		return getPurchaseDao().insertPurchase(userId, paymentId, shipmentMode);
+	public boolean insertPurchase(int userId, int paymentId, String shipmentMode, int storeId, int status){
+		return getPurchaseDao().insertPurchase(userId, paymentId, shipmentMode, storeId, status);
 	}
 
 	public Payment getPayment(String transactionCode){

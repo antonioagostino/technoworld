@@ -76,9 +76,19 @@ img {
 	display: none;
 }
 
+#storeAlert{
+	display: none;
+}
+
 #shipmentButton{
 	margin-top: 10px;
 	margin-bottom: 10px;
+	background-color: #feac01;
+	border: 1px #feac01 solid;
+}
+
+#localStoreDropdown{
+	margin-top: 10px;
 }
 
 #goToPayment {

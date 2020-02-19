@@ -125,6 +125,9 @@
 			<div class="alert alert-danger" id="shipmentAlert" role="alert">
 				Non tutti i campi sono stati compilati!
 			</div>
+			<div class="alert alert-danger" id="storeAlert" role="alert">
+				Scegli il negozio fisico per il ritiro!
+			</div>
 
 			<div id="shipmentcontainer" class="row">
 				<div class="input-group">
@@ -182,6 +185,16 @@
 						</div>
 						<input type="text" class="form-control" id="province" placeholder="Provincia" name="province" required>
 						<div class="invalid-feedback">Riempi questo campo!</div>
+					</div>
+				</div>
+				<div class="btn-group dropleft" id="localStoreDropdown">
+					<button class="btn btn-secondary dropdown-toggle" id="localStoreDropdownButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Seleziona il negozio fisico
+					</button>
+					<div class="dropdown-menu" aria-labelledby="localStoreDropdownButton">
+						<c:forEach var="store" items="${stores}">
+							<a class="dropdown-item" href="#" onclick="changeStoreId(${store.id})">${store.street}</a>
+						</c:forEach>
 					</div>
 				</div>
 				<div class="input-group mb-3">
