@@ -236,7 +236,7 @@ public class PurchaseDaoJDBC implements PurchaseDao {
             		"from \"map\", \"purchase\",\"user\", \"purchaseProducts\", payment, product  \n" + 
             		"where 	\"purchase\".\"storeId\" = \"map\".\"idStore\" and product.id = \"purchaseProducts\".product and \n" + 
             		"		purchase.id = \"purchaseProducts\".purchase and payment.id=purchase.payment and purchase.user=\"user\".\"id\" \n" + 
-            		"		and \"purchase\".\"storeId\" = ?";
+            		"		and \"purchase\".\"id\" = ?";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             ResultSet result = statement.executeQuery();
@@ -336,7 +336,11 @@ public class PurchaseDaoJDBC implements PurchaseDao {
 		ArrayList<Purchase> purchases = new ArrayList<Purchase>();
 		try {
             connection = dataSource.getConnection();
-            String query = "select * from \"map\", \"purchase\" where \"purchase\".\"storeId\" = \"map\".\"idStore\" and \"purchase\".\"storeId\" = ?";
+            String query = "select * \n" + 
+            		"from \"map\", \"purchase\",\"user\", \"purchaseProducts\", payment, product  \n" + 
+            		"where 	\"purchase\".\"storeId\" = \"map\".\"idStore\" and product.id = \"purchaseProducts\".product and \n" + 
+            		"		purchase.id = \"purchaseProducts\".purchase and payment.id=purchase.payment and purchase.user=\"user\".\"id\" \n" + 
+            		"		and \"purchase\".\"storeId\" = ?";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, storeId);
             ResultSet result = statement.executeQuery();

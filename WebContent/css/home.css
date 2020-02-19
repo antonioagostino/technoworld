@@ -9,11 +9,11 @@
 
 #carouselPhone {
 	background-color: white;
+	text-align: center;
 }
 
 #carouselLaptop {
-	background-color: ;
-	text-align: center;
+	background-color:  #6f6e73;
 }
 
 #carouselHardware {
@@ -205,9 +205,6 @@ div.imageAccessory {
 }
 
 
-	
-/* // FINE CATEGORIE */
-
 footer div {
 	/* position: relative;
 	top: 50px;
@@ -216,6 +213,7 @@ footer div {
 	color: black;
 	text-align: center; */
 }
+
 
 
 

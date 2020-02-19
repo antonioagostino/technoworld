@@ -29,19 +29,9 @@
 			
 			  <!-- The slideshow -->
 			  <div class="carousel-inner">
-			    <div id="carouselPhone" class="carousel-item">
-			      <img class="carousel-img" src="img/carousel/home/1.jpg" alt="cellulari">
-			      
-			      
-			    </div>
-			    <div id="carouselLaptop" class="carousel-item active">
-			      <img id="carouselImg2" class="carousel-img" src="img/carousel/home/2.jpg" alt="laptop">
-			      
-			    </div>
-			    
-			    <div id="carouselHardware" class="carousel-item">
-			      <img class="carousel-img" src="img/carousel/home/3.jpg" alt="cpu">
-			    </div>
+			    <div id="carouselPhone" class="carousel-item"><img class="carousel-img" src="img/carousel/home/1.jpg" alt="cellulari"></div>
+			    <div id="carouselLaptop" class="carousel-item active"><img id="carouselImg2" class="carousel-img" src="img/carousel/home/2.jpg" alt="laptop"></div>
+			    <div id="carouselHardware" class="carousel-item"><img class="carousel-img" src="img/carousel/home/3.jpg" alt="cpu"></div>
 			  </div>
 			
 			  <!-- Left and right controls -->
