@@ -53,6 +53,8 @@ public class PurchaseDaoJDBC implements PurchaseDao {
                     purchase.setId(result.getInt(1));
                     purchase.setDate(result.getDate("date"));
                     purchase.setShipment(result.getString("shipment"));
+                    purchase.setStatus(result.getInt("status"));
+                    purchase.setStoreId(result.getInt("storeId"));
                     Payment payment = new Payment();
                     payment.setTransaction(result.getString("transactionCode"));
                     payment.setAmount(result.getFloat("amount"));
@@ -244,6 +246,8 @@ public class PurchaseDaoJDBC implements PurchaseDao {
             			purchase.setId(id);
                         purchase.setDate(result.getDate("date"));
                         purchase.setShipment(result.getString("shipment"));
+                        purchase.setStatus(result.getInt("status"));
+                        purchase.setStoreId(result.getInt("storeId"));
                         Payment payment = new Payment();
                         payment.setTransaction(result.getString("transactionCode"));
                         payment.setAmount(result.getFloat("amount"));

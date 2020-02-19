@@ -15,6 +15,8 @@ public class Purchase {
 	private String user;
 	private String shipment;
 	private ArrayList<ProductQuantity> products;
+	private int storeId;
+	private int status;
 	
 	public Purchase() {}
 	
@@ -93,6 +95,22 @@ public class Purchase {
 
 	public void setProducts(ArrayList<ProductQuantity> products) {
 		this.products = products;
+	}
+	
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
+	public int getStatus() {
+		return status;
+	}
+	
+	public int getStoreId() {
+		return storeId;
+	}
+	
+	public void setStoreId(int storeId) {
+		this.storeId = storeId;
 	}
 	
 	
