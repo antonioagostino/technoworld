@@ -23,7 +23,7 @@
 
 <div class="container" >
     <c:if test="${emptyOrders == true}">
-        <h1 id="noOrders">Non hai effettuato nessun ordine!</h1>
+        <h1 id="noOrders">Non hai ricevuto nessun ordine!</h1>
     </c:if>
 
 
@@ -40,13 +40,13 @@
                             <div class="row">
                                 <h5 class="col-sm-9">Riepilogo ordine:</h5>
                                 <c:if test="${purchase.status == 1}">
-                                    <p class="col-sm-3 text-right"><strong>Stato: </strong><i class="fa fa-gears"></i> in elaborazione</p>
+                                    <p class="col-sm-3 text-right" id="purchase-status"><strong>Stato: </strong><i class="fa fa-gears"></i> in elaborazione</p>
                                 </c:if>
                                 <c:if test="${purchase.status == 2}">
-                                    <p class="col-sm-3 text-right"><strong>Stato: </strong><i class="fa fa-gift"></i> pronto per il ritiro</p>
+                                    <p class="col-sm-3 text-right" id="purchase-status"><strong>Stato: </strong><i class="fa fa-gift"></i> pronto per il ritiro</p>
                                 </c:if>
                                 <c:if test="${purchase.status == 3}">
-                                    <p class="col-sm-3 text-right"><strong>Stato: </strong><i class="fa fa-truck"></i> consegnato</p>
+                                    <p class="col-sm-3 text-right" id="purchase-status"><strong>Stato: </strong><i class="fa fa-truck"></i> consegnato</p>
                                 </c:if>
                             </div>
                             <div class="row">

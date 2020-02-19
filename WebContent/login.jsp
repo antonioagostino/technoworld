@@ -34,8 +34,17 @@
 			</div>
 	    </div>
 	    </c:if>
+
+		<c:if test="${adminNotAuthenticated != null}">
+			<div class="row">
+				<a class="adminLogin col text-center" href="login?admin=false">
+					Non sono un amministratore
+				</a>
+			</div>
+		</c:if>
 	    
-		<form method="post" <c:if test="${adminNotAuthenticated == null}"> action="login" </c:if> <c:if test="${adminNotAuthenticated != null}"> action="login?admin=true" </c:if> class="needs-validation" novalidate>
+		<form method="post" <c:if test="${adminNotAuthenticated == null}"> action="login" </c:if> <c:if test="${adminNotAuthenticated != null && store == null}"> action="login?admin=true" </c:if>
+				<c:if test="${adminNotAuthenticated != null && store != null}"> action="login?store=true" </c:if> class="needs-validation" novalidate>
 		  <div class="form-group">
 		 	 <c:if test="${adminNotAuthenticated == null}">
 		    	<label for="uname">Inserisci il tuo Username</label>
@@ -45,9 +54,11 @@
 			</c:if>
 			<c:if test="${adminNotAuthenticated != null}">
 				<label for="uname">Inserisci il tuo ID</label>
-				<a class="adminLogin" href="login?admin=false">
-			  		Non sei un amministratore?
+			  <c:if test="${store == null}">
+				<a class="adminLogin" href="login?store=true">
+			  		Gestisci uno store fisico?
 			  	</a>
+			  </c:if>
 			</c:if>
 			<c:if test="${adminNotAuthenticated == null}">
 		    	<input type="text" class="form-control" id="username" placeholder="Username" name="username" required>

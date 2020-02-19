@@ -1,22 +1,19 @@
 package model.users;
 
+import model.purchases.Store;
+
 public class StoreAdministrator {
 
 	private String id;
 	private String name;
 	private String password;
-	private int store;
-	
-	public StoreAdministrator(String id, String name, String password, int store) {
-		super();
+	private Store store;
+
+	public StoreAdministrator(String id, String name, String password, Store store) {
 		this.id = id;
 		this.name = name;
 		this.password = password;
 		this.store = store;
-	}
-
-	public StoreAdministrator() {
-		super();
 	}
 
 	public String getId() {
@@ -43,15 +40,11 @@ public class StoreAdministrator {
 		this.password = password;
 	}
 
-	public int getStore() {
+	public Store getStore() {
 		return store;
 	}
 
-	public void setStore(int store) {
+	public void setStore(Store store) {
 		this.store = store;
 	}
-	
-	
-	
-	
 }
