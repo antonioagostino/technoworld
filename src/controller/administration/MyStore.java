@@ -24,13 +24,17 @@ public class MyStore extends HttpServlet{
 		Store store = null;
 		if(admin != null) {
 			store = DBManager.getInstance().getStoreByAdmin(admin);
-			purchases = DBManager.getInstance().getPurchaseForStore(store.getId()); 
+			purchases = DBManager.getInstance().getPurchaseForStore(store.getId());
+			if(purchases.isEmpty())
+				req.setAttribute("emptyOrders", true);
+			else
+				req.setAttribute("emptyOrders", false);
+
+			req.setAttribute("purchases", purchases);
+			req.setAttribute("store", store);
+			RequestDispatcher requestDispatcher = req.getRequestDispatcher("myStore.jsp");
+			requestDispatcher.forward(req, resp);
 		}
-		
-		req.setAttribute("purchases", purchases);
-		req.setAttribute("store", store);
-		RequestDispatcher requestDispatcher = req.getRequestDispatcher("myStore.jsp");
-        requestDispatcher.forward(req, resp);
 	}
 	
 	

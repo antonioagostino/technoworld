@@ -37,7 +37,18 @@
       				</div>
 					<div id="collapse${purchase.id}" class="collapse" data-parent="#accordion">
 	        			<div class="card-body">
-	          				<h5>Riepilogo ordine:</h5>
+							<div class="row">
+								<h5 class="col-sm-9">Riepilogo ordine:</h5>
+								<c:if test="${purchase.status == 1}">
+									<p class="col-sm-3 text-right"><strong>Stato: </strong><i class="fa fa-gears"></i> in elaborazione</p>
+								</c:if>
+								<c:if test="${purchase.status == 2}">
+									<p class="col-sm-3 text-right"><strong>Stato: </strong><i class="fa fa-gift"></i> pronto per il ritiro</p>
+								</c:if>
+								<c:if test="${purchase.status == 3}">
+									<p class="col-sm-3 text-right"><strong>Stato: </strong><i class="fa fa-truck"></i> consegnato</p>
+								</c:if>
+							</div>
 	          				<div class="row">
 	          					<div class="col-sm-6"> <h6>Data acquisto:</h6><p> ${purchase.date}</p> </div>
 	          					<div class="col-sm-6">
@@ -62,7 +73,7 @@
 	          				<c:forEach var="product1" items="${purchase.products}">
 	          					<div class="row product" >
 		          					<div class="col-sm-2"><img alt="image not found" src="img/products/${product1.product.imagePath}"></div>
-		          					<div class="col-sm-5"><a href="product?id=${product1.product.id}"><h6 class="product">${product1.product.manufacturer} ${product1.product.model} </h6></a></div>
+									<div class="col-sm-5"><h6 class="product"><a href="product?id=${product1.product.id}">${product1.product.manufacturer} ${product1.product.model}</a> x ${product1.quantity}</h6></div>
 		          					<div class="col-sm-3"><button type="button" class="btn btn-primary btn-sm" id="writeReview" onclick="window.location.href = 'product?id=${product1.product.id}';">Scrivi una recensione</button></div>
 		          					<div class="col-sm-2"><h6 id="price">Prezzo: ${product1.product.price} €</h6></div>
 	          					
@@ -74,25 +85,12 @@
 	          						<div class="col-sm-6"><h6 style="text-align: right;">Totale: ${purchase.payment.amount} €</h6></div>
 	          					</div>
 	          				</div>		
-	          			</div>	
-	          		
+	          			</div>
 	          		</div>				
 	          	</c:forEach> 	
 	          	</c:if>
-			</div> <!-- accordion -->
-			
-			
-		
-			
 			</div>
-			
-			
-			
-			
-		    
-			
-	
-	
+			</div>
 </body>
 </html>
 
