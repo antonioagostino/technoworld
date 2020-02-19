@@ -12,6 +12,7 @@ import model.purchases.Payment;
 import model.purchases.Purchase;
 import model.purchases.Store;
 import model.users.Administrator;
+import model.users.StoreAdministrator;
 import model.users.User;
 import technicalservices.persistence.dao.*;
 import technicalservices.persistence.dao.jdbc.*;
@@ -99,6 +100,8 @@ public class DBManager {
 	public PurchaseDao getPurchaseDao(){ return new PurchaseDaoJDBC(this.dataSource);}
 
 	public TicketDao getTicketDao(){ return new TicketDaoJDBC(this.dataSource); }
+
+	public StoreAdministratorDao getStoreAdminDao(){ return new StoreAdministratorDaoJDBC(this.dataSource); }
 
 	public Category getCategory(int categoryId){
 		return getCategoryDao().findCategory(categoryId);
@@ -256,4 +259,8 @@ public class DBManager {
 	public ArrayList<Purchase> getPurchaseForStore(int storeId) { return getPurchaseDao().getPurchaseForStore(storeId); }
 	
 	public void updateStatus(int status, int orderId) { getPurchaseDao().updateStatus(status, orderId); }
+
+	public StoreAdministrator findStoreAdministrator(String id, String password){
+		return getStoreAdminDao().findAdministrator(id, password);
+	}
 }

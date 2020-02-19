@@ -23,7 +23,7 @@
 
 <div class="container" >
     <c:if test="${emptyOrders == true}">
-        <h1 id="noOrders">Non hai effettuato nessun ordine!</h1>
+        <h1 id="noOrders">Non hai ricevuto nessun ordine!</h1>
     </c:if>
 
 

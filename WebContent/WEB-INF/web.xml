@@ -312,6 +312,16 @@
 		<url-pattern>/newtickets</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>MyStore</servlet-name>
+		<servlet-class>controller.administration.MyStore</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MyStore</servlet-name>
+		<url-pattern>/mystore</url-pattern>
+	</servlet-mapping>
+
 	<filter>
 		<filter-name>CharsetFilter</filter-name>
 		<filter-class>controller.websurfing.CharsetFilter</filter-class>
