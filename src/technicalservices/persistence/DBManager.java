@@ -10,6 +10,7 @@ import model.products.Product;
 import model.products.Review;
 import model.purchases.Payment;
 import model.purchases.Purchase;
+import model.purchases.Store;
 import model.users.Administrator;
 import model.users.User;
 import technicalservices.persistence.dao.*;
@@ -247,4 +248,6 @@ public class DBManager {
 	}
 	
 	public void registerGoogleUser(User user) { getUserDao().registerGoogleUser(user);}
+	
+	public ArrayList<Store> getAllStore() { return getPurchaseDao().getAllStore(); }
 }

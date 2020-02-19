@@ -8,6 +8,7 @@ import model.products.ProductQuantity;
 import model.products.Review;
 import model.purchases.Payment;
 import model.purchases.Purchase;
+import model.purchases.Store;
 import technicalservices.persistence.DBManager;
 import technicalservices.persistence.DataSource;
 import technicalservices.persistence.dao.PurchaseDao;
@@ -254,5 +255,32 @@ public class PurchaseDaoJDBC implements PurchaseDao {
             }
         }
         return purchase;
+	}
+
+	@Override
+	public ArrayList<Store> getAllStore() {
+		ArrayList<Store> allStore = null;
+		try {
+            connection = dataSource.getConnection();
+            String query = "select \"idStore\", \"name\" from map";
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet result = statement.executeQuery();
+            while(result.next()) {
+            	if(allStore == null) 
+            		allStore = new ArrayList<Store>();
+            	Store s = new Store(result.getInt("idStore"), result.getString("name"));
+            	allStore.add(s);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+		
+		return allStore;
 	}
 }

@@ -2,6 +2,7 @@ package technicalservices.persistence.dao;
 
 import model.purchases.Payment;
 import model.purchases.Purchase;
+import model.purchases.Store;
 
 import java.util.ArrayList;
 
@@ -13,4 +14,5 @@ public interface PurchaseDao {
     Purchase findPurchase(Payment payment);
     boolean insertPurchaseProductAssociation(int quantity, int productId, int purchaseId);
 	Purchase getPurchaseById(int id);
+	ArrayList<Store> getAllStore();
 }
