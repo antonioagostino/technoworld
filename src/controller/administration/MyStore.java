@@ -3,6 +3,7 @@ package controller.administration;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.mail.MessagingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.purchases.Purchase;
 import model.purchases.Store;
+import technicalservices.MailUtility;
 import technicalservices.persistence.DBManager;
 
 public class MyStore extends HttpServlet{
@@ -44,6 +46,13 @@ public class MyStore extends HttpServlet{
 		int orderStatus = Integer.parseInt(req.getParameter("orderStaus"));
 		
 		DBManager.getInstance().getPurchaseDao().updateStatus(orderStatus, orderId);
+		Purchase p = DBManager.getInstance().getPurchaseById(orderId);
+		
+		try {
+			MailUtility.notifyChangeStatus(p, DBManager.getInstance().getEmailByUserId(p.getIdUser()));
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
 		
 		resp.getOutputStream().print(orderStatus);
 	}

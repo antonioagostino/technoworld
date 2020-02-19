@@ -99,6 +99,34 @@ import javax.mail.internet.MimeMultipart;
 			
 		}
 		
+		public static void notifyChangeStatus(Purchase purchase, String dest) throws MessagingException{
+			Properties props = System.getProperties();
+			props.put("mail.smtp.starttls.enable", "true");
+			props.put("mail.smtp.host", MailUtility.host);
+			props.put("mail.smtp.user", MailUtility.from);
+			props.put("mail.smtp.password", MailUtility.pass);
+			props.put("mail.smtp.port", "587");
+			props.put("mail.smtp.auth", "true");
+			
+			Session session = Session.getDefaultInstance(props,null);
+			MimeMessage message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(from));
+			message.addRecipients(Message.RecipientType.TO, dest);
+			message.setSubject("Notifica cambiamento di stato");
+			String text = null;
+			if(purchase.getStatus() == 2)
+				text = "Ciao " + purchase.getUser()+ ",\n\nIl tuo ordine n. " + purchase.getId() + "è pronto per essere ritirato presso il nostro negozio " + purchase.getShipment() +"."
+					+ "\nTi ricordiamo di presentare la ricevuta di acquisto al momento del ritiro!\n"
+					+ "Grazie per aver acquistato su TechnoWorld.it!";
+			if(purchase.getStatus() == 3)
+				text = "Ciao " + purchase.getUser()+ ",\n\nIl tuo ordine n. " + purchase.getId() + "è stato ritirato presso il nostro negozio " + purchase.getShipment() +"."
+						+ "Grazie per aver acquistato su TechnoWorld.it!";
+			message.setText(text);
+			Transport transport = session.getTransport("smtp");
+			transport.connect(host,from,pass);
+			transport.sendMessage(message, message.getAllRecipients());
+			transport.close();
+		}
 }
 
 	
