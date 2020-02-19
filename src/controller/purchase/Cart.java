@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.products.Product;
+import model.purchases.Store;
 import model.users.User;
 import technicalservices.persistence.DBManager;
 
@@ -23,6 +24,7 @@ public class Cart extends HttpServlet {
 		
 		User user = (User) req.getSession().getAttribute("user");
 		ArrayList<Product> cart = null;
+		ArrayList<Store> allStore = DBManager.getInstance().getAllStore();
 		
 		double totalPrice = 0;
 
@@ -52,7 +54,7 @@ public class Cart extends HttpServlet {
 		
 		req.getSession().setAttribute("cartProducts", cart);
 		req.getSession().setAttribute("totalPrice", totalPrice);
-		
+		req.setAttribute("stores", allStore);
 		rd.forward(req, resp);
 	}
 	
