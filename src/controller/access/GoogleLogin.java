@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.mail.MessagingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.products.Product;
 import model.users.User;
+import technicalservices.MailUtility;
 import technicalservices.persistence.DBManager;
 
 public class GoogleLogin extends HttpServlet{
@@ -44,6 +46,12 @@ public class GoogleLogin extends HttpServlet{
 			}
 			user.setUsername(username);
 			db.registerGoogleUser(user);
+			try {
+				MailUtility.sendRegistrationMail(email, username, null);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
 		

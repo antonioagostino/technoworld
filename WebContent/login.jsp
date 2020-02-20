@@ -95,7 +95,10 @@
 		  <div class="col text-center">
 		  	<input type="submit" class="btn btn-primary" value="Accedi" />
 		  </div>
-		  <div class="g-signin2" data-width="230" data-height="45" data-longtitle="true" data-onsuccess="onSignIn"></div>
+		  <c:if test="${adminNotAuthenticated == null}">
+		  	<div class="g-signin2" data-width="230" data-height="45" data-longtitle="true" data-onsuccess="onSignIn"></div>
+		  </c:if>
+		  
 		  
 		</form>
 		

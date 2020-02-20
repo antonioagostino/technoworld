@@ -321,6 +321,16 @@
 		<servlet-name>MyStore</servlet-name>
 		<url-pattern>/mystore</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Newsletter</servlet-name>
+		<servlet-class>controller.websurfing.Newsletter</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Newsletter</servlet-name>
+		<url-pattern>/newsletter</url-pattern>
+	</servlet-mapping>
 
 	<filter>
 		<filter-name>CharsetFilter</filter-name>

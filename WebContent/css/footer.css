@@ -1,0 +1,57 @@
+.page-footer{
+	background-color: #110900;
+	margin-top: 1%;
+	
+}
+
+#footerDiv {
+	color: white;
+	position: relative;
+}
+
+#findAStore {
+	background-color: #feac01;
+	width: 91%;
+	color: #110900;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 2vh;
+	margin-top: 1%;
+}
+
+#secureWithPayPal{
+	margin-top: 1%;
+}
+
+#firstCol {
+	margin-top: 4%;
+	position: relative;
+}
+
+#rowPayPal {
+	margin: 0;
+}
+
+#secure {
+	margin-left: 10%;
+	margin-top: 9%;
+	font-weight: bold;
+}
+
+#secondCol{
+	margin-top: 4%;
+	margin-left: 23%;
+}
+
+#thirdCol {
+	margin-top: 4%;
+}
+
+#reg{
+	background-color: #feac01;	
+}
+
+.fa-2x {
+	color: white;
+}
+

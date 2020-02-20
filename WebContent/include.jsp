@@ -11,3 +11,6 @@
 <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 <meta name = "google-signin-client_id" content = "277034231605-82l8lfsevpl19119k1b0bn1rk56r64lb.apps.googleusercontent.com">
 <meta name="google-signin-scope" content="profile email">
+<link rel="stylesheet" href="css/footer.css">
+<script src="js/footer.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>

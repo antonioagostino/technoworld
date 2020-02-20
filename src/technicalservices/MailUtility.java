@@ -87,11 +87,17 @@ import javax.mail.internet.MimeMultipart;
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(from));
 			message.addRecipients(Message.RecipientType.TO, dest);
-			message.setSubject("Conferma registrazione technoWorld");
-			message.setText("Ciao " + username + " grazie per esserti registrato su TechnoWorld.it!\n\n"
-					+ "Ti ricordiamo le credenziali da te inserite:\nUsername: "+username+"\nPassword: "+password+" \n\n"
-					+ "Ti auguriamo una piacevole navigazione!\nCordiali Saluti!\n\n Il team technoWorld\n\n\n\n"
-					+ "Non rispondere a questa e-mail in quanto è stata generata automaticamente.\n ");
+			message.setSubject("Conferma registrazione technoWorld.it");
+			if(password!=null)
+				message.setText("Ciao " + username + " grazie per esserti registrato su TechnoWorld.it!\n\n"
+						+ "Ti ricordiamo le credenziali da te inserite:\nUsername: "+username+"\nPassword: "+password+" \n\n"
+						+ "Ti auguriamo una piacevole navigazione!\nCordiali Saluti!\n\n Il team technoWorld\n\n\n\n"
+						+ "Non rispondere a questa e-mail in quanto è stata generata automaticamente.\n ");
+			else 
+				message.setText("Ciao " + username + " grazie per esserti registrato su TechnoWorld.it tramite Google!\n\n"
+						+ "Il tuo username è il seguente:\n"+username+"\n \n"
+						+ "Ti auguriamo una piacevole navigazione!\nCordiali Saluti!\n\n Il team technoWorld\n\n\n\n"
+						+ "Non rispondere a questa e-mail in quanto è stata generata automaticamente.\n ");
 			Transport transport = session.getTransport("smtp");
 			transport.connect(host,from,pass);
 			transport.sendMessage(message, message.getAllRecipients());
@@ -126,6 +132,32 @@ import javax.mail.internet.MimeMultipart;
 			transport.connect(host,from,pass);
 			transport.sendMessage(message, message.getAllRecipients());
 			transport.close();
+		}
+
+		public static void sendNewsletterEmail(String email) throws MessagingException{
+			Properties props = System.getProperties();
+			props.put("mail.smtp.starttls.enable", "true");
+			props.put("mail.smtp.host", MailUtility.host);
+			props.put("mail.smtp.user", MailUtility.from);
+			props.put("mail.smtp.password", MailUtility.pass);
+			props.put("mail.smtp.port", "587");
+			props.put("mail.smtp.auth", "true");
+			
+			Session session = Session.getDefaultInstance(props,null);
+			MimeMessage message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(from));
+			message.addRecipients(Message.RecipientType.TO, email);
+			message.setSubject("Conferma iscrizione newsletter technoWorld.it");
+			message.setText("Grazie per esserti registrato alla newsletter di TechnoWorld.it!\n\n"
+					+ "Da oggi riverai offerte esclusive e news sui prodotti più desiderati! \n\n"
+					+ "Ti auguriamo una piacevole navigazione!\nCordiali Saluti!\n Il team technoWorld\n\n\n\n"
+					+ "Non rispondere a questa e-mail in quanto è stata generata automaticamente.\n ");
+			
+			Transport transport = session.getTransport("smtp");
+			transport.connect(host,from,pass);
+			transport.sendMessage(message, message.getAllRecipients());
+			transport.close();
+			
 		}
 }
 
