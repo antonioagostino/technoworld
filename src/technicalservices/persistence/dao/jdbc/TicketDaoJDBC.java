@@ -81,7 +81,7 @@ public class TicketDaoJDBC implements TicketDao {
         try {
             connection = dataSource.getConnection();
             String query = "select * from tickets full outer join administrator on \"adminId\" = administrator.id where " +
-                    "\"userId\" = ?";
+                    "\"userId\" = ? order by date desc";
             PreparedStatement stat = connection.prepareStatement(query);
             stat.setInt(1, user.getId());
             ResultSet resultSet = stat.executeQuery();
@@ -254,7 +254,7 @@ public class TicketDaoJDBC implements TicketDao {
         try {
             connection = dataSource.getConnection();
             String query = "select * from tickets,\"user\" where tickets.\"userId\" = \"user\".id and " +
-                    "\"tickets\".\"adminId\" is null and status = 0";
+                    "\"tickets\".\"adminId\" is null and status = 0 order by id asc";
             PreparedStatement stat = connection.prepareStatement(query);
             ResultSet resultSet = stat.executeQuery();
             while (resultSet.next()){
