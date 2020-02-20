@@ -336,11 +336,11 @@ public class PurchaseDaoJDBC implements PurchaseDao {
 		ArrayList<Purchase> purchases = new ArrayList<Purchase>();
 		try {
             connection = dataSource.getConnection();
-            String query = "select * \n" + 
-            		"from \"map\", \"purchase\",\"user\", \"purchaseProducts\", payment, product  \n" + 
-            		"where 	\"purchase\".\"storeId\" = \"map\".\"idStore\" and product.id = \"purchaseProducts\".product and \n" + 
-            		"		purchase.id = \"purchaseProducts\".purchase and payment.id=purchase.payment and purchase.user=\"user\".\"id\" \n" + 
-            		"		and \"purchase\".\"storeId\" = ?";
+            String query = "select * from \"purchase\",\"map\",\"user\", \"purchaseProducts\", payment, product " +
+                    "where \"purchase\".\"storeId\" =" +
+                    "\"map\".\"idStore\" and product.id = \"purchaseProducts\".product and purchase.id = " +
+                    "\"purchaseProducts\".purchase " +
+                    "and payment.id=purchase.payment and purchase.user=\"user\".\"id\" and \"purchase\".\"storeId\" = ?";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, storeId);
             ResultSet result = statement.executeQuery();
@@ -363,6 +363,8 @@ public class PurchaseDaoJDBC implements PurchaseDao {
                     purchase.setId(result.getInt(1));
                     purchase.setDate(result.getDate("date"));
                     purchase.setShipment(result.getString("shipment"));
+                    purchase.setStatus(result.getInt("status"));
+                    purchase.setStoreId(result.getInt("storeId"));
                     Payment payment = new Payment();
                     payment.setTransaction(result.getString("transactionCode"));
                     payment.setAmount(result.getFloat("amount"));

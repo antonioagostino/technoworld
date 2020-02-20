@@ -123,8 +123,7 @@ public class Login extends HttpServlet {
 					req.setAttribute("emptyOrders", false);
 
 				req.setAttribute("purchases", purchases);
-				RequestDispatcher requestDispatcher = req.getRequestDispatcher("manageOrders.jsp");
-				requestDispatcher.forward(req, resp);
+				rd = req.getRequestDispatcher("manageOrders.jsp");
 			} else {
 				req.setAttribute("loginError", true);
 				rd = req.getRequestDispatcher("login.jsp");

@@ -9,7 +9,7 @@
     <%@ include file="include.jsp" %>
     <link rel="stylesheet" href="css/orders.css">
     <link rel="stylesheet" href="css/wrunner-default-theme.css">
-    <script src="js/product.js"></script>
+    <script src="js/manageOrders.js"></script>
 </head>
 <body>
 
@@ -21,7 +21,7 @@
     <h5>Visualizza i dati degli ordini ricevuti</h5>
 </div>
 
-<div class="container" >
+<div class="container">
     <c:if test="${emptyOrders == true}">
         <h1 id="noOrders">Non hai ricevuto nessun ordine!</h1>
     </c:if>
@@ -52,19 +52,12 @@
                             <div class="row">
                                 <div class="col-sm-6"> <h6>Data acquisto:</h6><p> ${purchase.date}</p> </div>
                                 <div class="col-sm-6">
-                                    <form action="sendRecipt" method="post">
-                                        <div class="form-group" style="display: none;">
-                                            <select style="display: none;" name="purchase">
-                                                <option>${purchase.id}</option>
-                                            </select>
-                                        </div>
-                                        <c:if test="${purchase.status == 1}">
-                                            <button class="btn btn-primary btn-sm" id="recipt">Notifica possibilità di ritiro</button>
-                                        </c:if>
-                                        <c:if test="${purchase.status == 2}">
-                                            <button class="btn btn-primary btn-sm" id="recipt">Notifica avvenuta consegna</button>
-                                        </c:if>
-                                    </form>
+                                    <c:if test="${purchase.status == 1}">
+                                        <button class="btn btn-primary btn-sm" id="recipt" onclick="updatePurchaseStatus(${purchase.id}, '2');">Notifica possibilità di ritiro</button>
+                                    </c:if>
+                                    <c:if test="${purchase.status == 2}">
+                                        <button class="btn btn-primary btn-sm" id="recipt" onclick="updatePurchaseStatus(${purchase.id}, '3');">Notifica avvenuta consegna</button>
+                                    </c:if>
                                 </div>
                             </div>
                             <h6>Spedizione:</h6>
