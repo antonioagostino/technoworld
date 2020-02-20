@@ -12,19 +12,19 @@
 <body>
 
 <%@ include file="menuBar.jsp" %>
-
+<div class="jumbotron text-center">
+    <div class="imageTitleOrders"><img src="img/ticket.png" width="100px"></div>
+    <c:if test="${administrator == null}">
+        <h2 class="display-4">I tuoi ticket</h2>
+        <h5>Visualizza tutti i ticket che hai aperto</h5>
+    </c:if>
+    <c:if test="${administrator != null}">
+        <h2 class="display-4">Gestisci ticket</h2>
+        <h5>Visualizza tutti i ticket ai quali hai risposto</h5>
+    </c:if>
+</div>
 <br>
     <div class="container-fluid">
-        <div class="row">
-            <h2 class="col display-4 text-center" id="pageTitle">
-                <c:if test="${administrator == null}">
-                    I tuoi Ticket
-                </c:if>
-                <c:if test="${administrator != null}">
-                    Ticket ai quali hai risposto
-                </c:if>
-            </h2>
-        </div>
         <c:if test="${administrator != null}">
             <div class="row">
                 <p class="col text-right"><a href="newtickets">Ticket ancora senza risposta</a></p>

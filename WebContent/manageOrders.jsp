@@ -13,7 +13,19 @@
 </head>
 <body>
 
-<%@ include file="menuBar.jsp" %>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 text-center">
+        <img src="img/logo.png" class="img-fluid">
+    </div>
+    <div class="col-sm-4 text-right">
+        <a href="login?logout=true">
+            <button class="btn btn-primary" id="logout-button-storemode">
+                Logout
+            </button>
+        </a>
+    </div>
+</div>
 
 <div class="jumbotron" id="titleOrders">
     <div class="imageTitleOrders"><img src="img/package.png" width="100px"></div>
@@ -84,5 +96,6 @@
         </c:if>
     </div>
 </div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

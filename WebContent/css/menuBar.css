@@ -13,6 +13,10 @@ body {
 	width: 90px;
 }
 
+#logout-button-storemode{
+	margin: 20px;
+}
+
 #whoWeAre>a:hover, #faq>a:hover, #map>a:hover, #orders>a:hover {
 	text-decoration: none;
 }
