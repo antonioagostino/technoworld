@@ -91,7 +91,9 @@ public class SearchJSON extends HttpServlet {
                 upperBound, orderType, keyword);
 
         String json = this.gson.toJson(products);
-        String completeJSONToSend = "[{\"pages\":" + pagesNumber + "},";
+        String completeJSONToSend = "[{\"pages\":" + pagesNumber + "}";
+        if(!json.equals("[]"))
+        	completeJSONToSend += ",";
         completeJSONToSend += json.substring(1);
         PrintWriter out = resp.getWriter();
         resp.setContentType("application/json");

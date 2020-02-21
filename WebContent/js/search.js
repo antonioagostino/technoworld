@@ -99,25 +99,42 @@ function updateProducts(page){
 		orderBy = "priceDesc";
 	}
 	$("#productBox").html("");
+
+	$("#paginationDiv").html("");
+	$("#productBox").html("<span style=\"margin: 0 auto; color:#0073e6;\" class=\"spinner-border\"></span>");
 	if(keyword != null){
-		console.log(keyword);
-		$.get("searchjson?"+keyword+"&p="+page+"&orderBy="+orderBy+"&filterBy="+filterBy+"&priceFrom="+priceLower+"&priceTo="+priceUpper, function(responseJson) {         
+		
+		$.get("searchjson?"+keyword+"&p="+page+"&orderBy="+orderBy+"&filterBy="+filterBy+"&priceFrom="+priceLower+"&priceTo="+priceUpper, function(responseJson) {
+			
 		    $.each(responseJson, function(index, product) { 
 		    	if(index == 0){
-		    		createPagination(product.pages, page);
+		    		if(product.pages > 0)
+		    			createPagination(product.pages, page);
+		    		else {
+		    			$("#productBox").html("");
+		    			$("#productBox").append("<h1 style=\"margin-left: 5%; margin-top: 3%;\">Non ci sono prodotti</h1>");
+		    		}
 		    	}
 		    	else{
+		    		$("#productBox").html("");
 		    		createProduct(product.id, product.imagePath, product.manufacturer, product.model, product.price, product.description, product.starsAvg);
 		    	}
 		    });
 		});
 	}
 	else {
-		$.get("searchjson?category="+categoryID+"&p="+page+"&orderBy="+orderBy+"&filterBy="+filterBy+"&priceFrom="+priceLower+"&priceTo="+priceUpper, function(responseJson) {         
+		$.get("searchjson?category="+categoryID+"&p="+page+"&orderBy="+orderBy+"&filterBy="+filterBy+"&priceFrom="+priceLower+"&priceTo="+priceUpper, function(responseJson) {
+			$("#productBox").html("<span class=\"spinner-border spinner-border-sm\"></span>");
 		    $.each(responseJson, function(index, product) { 
 		    	if(index == 0){
-		    		createPagination(product.pages, page);
+		    		if(product.pages > 0)
+		    			createPagination(product.pages, page);
+		    		else {
+		    			$("#productBox").html("");
+		    			$("#productBox").append("<h1 style=\"margin-left: 5%; margin-top: 3%;\">Non ci sono prodotti</h1>");
+		    		}
 		    	}else{
+		    		$("#productBox").html("");
 		    		createProduct(product.id, product.imagePath, product.manufacturer, product.model, product.price, product.description, product.starsAvg);
 		    	}
 		    });

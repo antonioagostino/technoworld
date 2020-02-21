@@ -100,30 +100,35 @@
 
             <div class="col-sm-9">
                 <div class="row" id="productBox">
-                    <c:forEach var="product" items="${products}">
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <div class="card-image"><a href="product?id=${product.id}"><img class="card-img-top img-thumbnail" src="img/products/${product.imagePath}" alt=""></a></div>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="product?id=${product.id}">${product.manufacturer} ${product.model}</a>
-                                    </h4>
-                                    <h5>${product.price}€</h5>
-                                    <p class="card-text">${product.description}</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">
-                                        <c:forEach var="i" begin="1" end="${product.starsAvg}">
-                                            &#9733;
-                                        </c:forEach>
-                                        <c:forEach var="i" begin="1" end="${5- product.starsAvg}">
-                                            &#9734;
-                                        </c:forEach>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
+                	<c:if test="${pages>0}">
+	                    <c:forEach var="product" items="${products}">
+	                        <div class="col-lg-4 col-md-6 mb-4">
+	                            <div class="card h-100">
+	                                <div class="card-image"><a href="product?id=${product.id}"><img class="card-img-top img-thumbnail" src="img/products/${product.imagePath}" alt=""></a></div>
+	                                <div class="card-body">
+	                                    <h4 class="card-title">
+	                                        <a href="product?id=${product.id}">${product.manufacturer} ${product.model}</a>
+	                                    </h4>
+	                                    <h5>${product.price}€</h5>
+	                                    <p class="card-text">${product.description}</p>
+	                                </div>
+	                                <div class="card-footer">
+	                                    <small class="text-muted">
+	                                        <c:forEach var="i" begin="1" end="${product.starsAvg}">
+	                                            &#9733;
+	                                        </c:forEach>
+	                                        <c:forEach var="i" begin="1" end="${5- product.starsAvg}">
+	                                            &#9734;
+	                                        </c:forEach>
+	                                    </small>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </c:forEach>
+	            	</c:if>
+	            	<c:if test="${pages<=0}">
+	            		<h1 style="margin-left: 5%; margin-top: 3%;">Non ci sono prodotti</h1>
+	            	</c:if>
                 </div>
             </div><!-- col -->
         </div><!-- row -->
@@ -131,8 +136,9 @@
 
 	
 	<div id="paginationDiv">
-		
-	   <script> createPagination(${pages}, 1); </script>
+	<c:if test="${pages>0}">
+		<script type="text/javascript">createPagination(${pages}, 1); </script>
+	</c:if>
     </div>
 
     
