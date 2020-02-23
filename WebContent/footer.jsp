@@ -7,7 +7,7 @@
   				<button class="btn" id="findAStore"> STORE LOCATOR </button>
   				<div class="row" id="rowPayPal">
   					<p id="secure">STORE ONLINE SICURO </p>
-					<table id="secureWithPayPal" border="0" cellpadding="10" cellspacing="0" align="center"><tbody><tr><td align="center"></td></tr><tr><td align="center"><a href="https://www.paypal.com/it/webapps/mpp/paypal-popup" title="Come funziona PayPal" onclick="javascript:window.open('https://www.paypal.com/it/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo-center/logo_paypal_sicuro.png" border="0" alt="Sicuro con PayPal" /></a><div style="text-align:center"><a href="https://www.paypal.com/it/webapps/mpp/why" target="_blank"><font size="2" face="Arial" color="#0079CD"><strong>Come funziona PayPal</strong></font></a></div></td></tr></tbody></table>  				
+					<table id="secureWithPayPal" border="0" cellpadding="10" cellspacing="0" align="center"><tbody><tr><td align="center"></td></tr><tr><td align="center"><a href="https://www.paypal.com/it/webapps/mpp/paypal-popup" title="Come funziona PayPal" onclick="javascript:window.open('https://www.paypal.com/it/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo-center/logo_paypal_sicuro.png" border="0" alt="Sicuro con PayPal" /></a><div style="text-align:center"><a href="https://www.paypal.com/it/webapps/mpp/why" target="_blank"><font size="2" face="Arial" color="white"><strong>Come funziona PayPal</strong></font></a></div></td></tr></tbody></table>  				
   				</div>
   				
   			</div>
@@ -21,7 +21,7 @@
 				  <a href="#" id="share-tw" class="sharer button"><i class="fab fa-2x fa-twitter"></i></a>
 				  <a href="#" id="share-li" class="sharer button"><i class="fab fa-2x fa-linkedin"></i></a>
 				  <a href="#" id="share-gp" class="sharer button"><i class="fab fa-2x fa-google"></i></a>
-				  <a href="#" id="share-em" class="sharer button"><i class="fa fa-2x fa-envelope-square"></i></a>
+				  <a href="#" id="share-em" class="sharer button"><i class="fa fa-2x fa-envelope"></i></a>
 				</div>
 				  
 			</div>
