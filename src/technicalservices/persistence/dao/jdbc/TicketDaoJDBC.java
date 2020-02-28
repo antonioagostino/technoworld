@@ -254,7 +254,7 @@ public class TicketDaoJDBC implements TicketDao {
         try {
             connection = dataSource.getConnection();
             String query = "select * from tickets,\"user\" where tickets.\"userId\" = \"user\".id and " +
-                    "\"tickets\".\"adminId\" is null and status = 0 order by id asc";
+                    "\"tickets\".\"adminId\" is null and status = 0 order by \"tickets\".id asc";
             PreparedStatement stat = connection.prepareStatement(query);
             ResultSet resultSet = stat.executeQuery();
             while (resultSet.next()){

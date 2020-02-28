@@ -44,7 +44,6 @@ public class MyStore extends HttpServlet{
 		
 		DBManager.getInstance().getPurchaseDao().updateStatus(orderStatus, orderId);
 		Purchase p = DBManager.getInstance().getPurchaseById(orderId);
-		System.out.println(p);
 		
 		try {
 			MailUtility.notifyChangeStatus(p, DBManager.getInstance().getEmailByUserId(p.getIdUser()));

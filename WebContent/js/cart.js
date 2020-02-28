@@ -5,8 +5,9 @@ var totalPrice;
 var address = "";
 var storeId = -1;
 
-function changeStoreId(id) {
+function changeStoreId(id, storeAddress) {
 	storeId = id;
+	address = storeAddress;
 }
 
 function valueCheck() {
@@ -18,9 +19,7 @@ function valueCheck() {
 		$("#storeAlert").show();
 	} else {
 
-		if($("#radio1").prop("checked") == true) {
-			address = "RITIRO IN NEGOZIO";
-		} else {
+		if($("#radio2").prop("checked") == true) {
 			address = $("#recipient").val() + ",\n" + $("#street").val() + ",\n" + $("#cap").val()
 				+ ",\n" + $("#city").val() + ",\n" + $("#province").val();
 			storeId = -1;

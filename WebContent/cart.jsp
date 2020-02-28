@@ -149,7 +149,7 @@
 				<div id="shipment" style="display: none;" class="col card">
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
-							<button class="input-group-text fa fa-drivers-license-o" disabled></button>
+							<button class="input-group-text fa fa-drivers-license" disabled></button>
 						</div>
 						<input type="text" class="form-control" id="recipient" placeholder="Nome e cognome del referente" name="recipient" required>
 						<div class="invalid-feedback">Riempi questo campo!</div>
@@ -157,7 +157,7 @@
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
-							<button class="input-group-text fa fa-home" disabled></button>
+							<button class="input-group-text fas fa-home" disabled></button>
 						</div>
 						<input type="text" class="form-control" id="street" placeholder="Indirizzo di casa e numero civico" name="street" required>
 						<div class="invalid-feedback">Riempi questo campo!</div>
@@ -165,7 +165,7 @@
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
-							<button class="input-group-text fa fa-map-marker" disabled></button>
+							<button class="input-group-text fas fa-map-marker" disabled></button>
 						</div>
 						<input type="text" class="form-control" id="cap" placeholder="CAP" name="cap" required>
 						<div class="invalid-feedback">Riempi questo campo!</div>
@@ -173,7 +173,7 @@
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
-							<button class="input-group-text fa fa-building-o" disabled></button>
+							<button class="input-group-text fas fa-building" disabled></button>
 						</div>
 						<input type="text" class="form-control" id="city" placeholder="Città" name="city" required>
 						<div class="invalid-feedback">Riempi questo campo!</div>
@@ -181,7 +181,7 @@
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
-							<button class="input-group-text fa fa-globe" disabled></button>
+							<button class="input-group-text fas fa-globe" disabled></button>
 						</div>
 						<input type="text" class="form-control" id="province" placeholder="Provincia" name="province" required>
 						<div class="invalid-feedback">Riempi questo campo!</div>
@@ -193,7 +193,7 @@
 					</button>
 					<div class="dropdown-menu" aria-labelledby="localStoreDropdownButton">
 						<c:forEach var="store" items="${stores}">
-							<a class="dropdown-item" href="#" onclick="changeStoreId(${store.id})">${store.street}</a>
+							<a class="dropdown-item" href="#" onclick="changeStoreId(${store.id}, '${store.street}')">${store.street}</a>
 						</c:forEach>
 					</div>
 				</div>

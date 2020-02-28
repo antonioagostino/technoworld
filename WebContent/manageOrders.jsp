@@ -52,23 +52,23 @@
                             <div class="row">
                                 <h5 class="col-sm-9">Riepilogo ordine:</h5>
                                 <c:if test="${purchase.status == 1}">
-                                    <p class="col-sm-3 text-right" id="purchase-status"><strong>Stato: </strong><i class="fa fa-gears"></i> in elaborazione</p>
+                                    <p class="col-sm-3 text-right" id="purchase-status${purchase.id}"><strong>Stato: </strong><i class="fa fa-gears"></i> in elaborazione</p>
                                 </c:if>
                                 <c:if test="${purchase.status == 2}">
-                                    <p class="col-sm-3 text-right" id="purchase-status"><strong>Stato: </strong><i class="fa fa-gift"></i> pronto per il ritiro</p>
+                                    <p class="col-sm-3 text-right" id="purchase-status${purchase.id}"><strong>Stato: </strong><i class="fa fa-gift"></i> pronto per il ritiro</p>
                                 </c:if>
                                 <c:if test="${purchase.status == 3}">
-                                    <p class="col-sm-3 text-right" id="purchase-status"><strong>Stato: </strong><i class="fa fa-truck"></i> consegnato</p>
+                                    <p class="col-sm-3 text-right" id="purchase-status${purchase.id}"><strong>Stato: </strong><i class="fa fa-truck"></i> consegnato</p>
                                 </c:if>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6"> <h6>Data acquisto:</h6><p> ${purchase.date}</p> </div>
                                 <div class="col-sm-6">
                                     <c:if test="${purchase.status == 1}">
-                                        <button class="btn btn-primary btn-sm" id="recipt" onclick="updatePurchaseStatus(${purchase.id}, '2');">Notifica possibilità di ritiro</button>
+                                        <button class="btn btn-primary btn-sm" id="recipt${purchase.id}" onclick="updatePurchaseStatus(${purchase.id}, '2');">Notifica possibilità di ritiro</button>
                                     </c:if>
                                     <c:if test="${purchase.status == 2}">
-                                        <button class="btn btn-primary btn-sm" id="recipt" onclick="updatePurchaseStatus(${purchase.id}, '3');">Notifica avvenuta consegna</button>
+                                        <button class="btn btn-primary btn-sm" id="recipt${purchase.id}" onclick="updatePurchaseStatus(${purchase.id}, '3');">Notifica avvenuta consegna</button>
                                     </c:if>
                                 </div>
                             </div>
@@ -96,6 +96,5 @@
         </c:if>
     </div>
 </div>
-<%@ include file="footer.jsp" %>
 </body>
 </html>
