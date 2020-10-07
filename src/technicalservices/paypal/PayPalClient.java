@@ -5,11 +5,20 @@ import com.paypal.core.PayPalHttpClient;
 
 public class PayPalClient {
 
-    private PayPalEnvironment environment = new PayPalEnvironment.Sandbox(
-            "AUuQsZ6W_kSfRMWY_JWNer6Ho-eU3XDcVAgce3CZYj8LhYJO4ZiL9AME6LMbWHPxGkbTVp3zHpoQudsR",
-            "EOdF5SBQTEe4pXbZ-4i1nkb9hBuPSQpXazAHGPztte6EAZJTg37ablGbaDg52pTCpe6q6BJhvqQm06UY");
+    private PayPalEnvironment environment;
+    PayPalHttpClient client;
 
-    PayPalHttpClient client = new PayPalHttpClient(environment);
+
+    public PayPalClient() {
+
+        var clientData = Files.readAllLines(PayPalClient.class.getResource("paypal-client-data.txt").toURI());
+        var clientId = clientData.get(0);
+        var clientSecret = clientData.get(1);
+
+        environment = new PayPalEnvironment.Sandbox(clientId, clientSecret);
+        client = new PayPalHttpClient(environment);
+        
+    }
 
     public PayPalHttpClient client() {
         return this.client;
